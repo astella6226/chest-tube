@@ -1317,5 +1317,26 @@
             }
         }
     </script>
+    <script>
+  function submitScore(unitInput, idInput, finalScore) {
+    // 送出成績給 Google 試算表
+    fetch(https://script.google.com/macros/s/AKfycbxAowF3brJCCDQp0ESZEvunt2irkkceeqbpS0ioi8WLeZRsNxW_3ON69qBUxCDjWgrRdQ/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        unit: unitInput,
+        id: idInput,
+        score: finalScore 
+      })
+    }).then(() => {
+      alert("成績已成功送出！指導老師已經收到囉！");
+    }).catch((error) => {
+      console.error('Error:', error);
+    });
+  }
+</script>
 </body>
 </html>
