@@ -815,6 +815,8 @@
             resultScore.innerText = `總分: ${finalScore} / 100`;
 
             const userText = userInfo.empId ? `\n(單位: ${userInfo.unit} / 代號: ${userInfo.empId})` : '';
+            // 將成績傳送到 Google 試算表
+submitScore(userInfo.unit, userInfo.empId, finalScore);
 
             if (finalScore === 100) {
                 resultTitle.innerText = "太棒了！SOP達人！" + userText;
